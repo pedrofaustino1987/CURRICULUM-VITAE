@@ -3,157 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BENITEZ FRANCO PEDRO</title>
+    <title>Mi CV</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: sans-serif;
             margin: 0;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: row;
+        }
+
+        .sidebar {
+            width: 6cm;
+            background-color: #007bff;
+            color: white;
             padding: 20px;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .nombre-sidebar {
+            font-family: "Arial Black", sans-serif;
+            font-size: 1.5em;
+            margin-bottom: 5px;
+            word-break: break-word;
+            text-align: left;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .titulo-profesion {
+            font-family: sans-serif;
+            font-size: 1em;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .photo-placeholder {
+            width: 4cm;
+            height: 4cm;
+            background-color: #f0f0f0;
+            border: 2px solid #fff;
+            margin-bottom: 20px;
+            overflow: hidden; /* Asegura que la imagen no se desborde del cuadrado */
             display: flex;
             justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            align-self: center;
         }
-        .cv-container {
-            display: flex;
-            width: 800px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
+
+        .photo-placeholder img {
+            width: 100%; /* La imagen ocuparÃ¡ el 100% del ancho del contenedor */
+            height: 100%; /* La imagen ocuparÃ¡ el 100% de la altura del contenedor */
+            object-fit: cover; /* Recorta la imagen para que cubra el contenedor sin distorsionarse */
+            display: block;
         }
-        .left-panel {
-            flex: 1;
-            background-color: #f7f7f7;
-            padding: 30px;
-            color: #333;
-            border-right: 1px solid #eee;
-        }
-        .right-panel {
-            flex: 2;
-            padding: 30px;
-            color: #333;
-        }
-        h1 {
-            color: #333;
-            margin-top: 0;
-            font-size: 2.2em;
-        }
-        h2 {
-            color: #555;
-            font-size: 1.5em;
+
+        .section-title-bar {
+            width: calc(100% + 40px);
+            margin-left: -20px;
+            height: 30px;
+            background-color: #0056b3;
             margin-top: 20px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 5px;
-        }
-        h3 {
-            color: #666;
-            font-size: 1.2em;
-            margin-bottom: 5px;
-        }
-        .contact-info p {
-            margin: 5px 0;
-            display: flex;
-            align-items: center; /* Alinea verticalmente el icono con el texto */
-        }
-        .contact-info .icon {
-            margin-right: 8px; /* Espacio entre el icono y el texto */
-            font-size: 1.1em; /* Ajusta el tamaño del icono si es necesario */
-            color: #555; /* Color del icono */
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        ul li {
-            margin-bottom: 10px;
-        }
-        .experience-item {
-            margin-bottom: 20px;
-        }
-        .experience-item h3 {
             margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+
+        .section-title-bar span {
+            font-family: sans-serif;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
             font-size: 1.1em;
         }
-        .experience-item p {
+
+        .contact-details-below-profile {
+            list-style: none;
+            padding: 0 20px;
             margin: 0;
-            font-style: italic;
-            color: #777;
-        }
-        .experience-item ul li {
-            list-style: disc;
-            margin-left: 20px;
-            margin-bottom: 5px;
-        }
-        .education-item {
-            margin-bottom: 15px;
-        }
-        .education-item h3 {
-            margin-bottom: 0;
-        }
-        .education-item p {
-            margin: 0;
-            color: #777;
-        }
-        .profile-image {
-            margin-bottom: 20px;
-            text-align: center; /* Centra la imagen si es más pequeña que el contenedor */
-        }
-        .profile-image img {
-            max-width: 150px; /* Tamaño máximo para la imagen de perfil */
             width: 100%;
-            border: 0px solid #ccc; /* Borde alrededor de la imagen */
-            height: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .contact-details-below-profile li {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-details-below-profile li .icon {
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+
+        .sidebar h2 {
+            margin-top: 20px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 5px;
+            padding-left: 20px;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                padding: 10px;
+                align-items: flex-start;
+            }
+
+            .nombre-sidebar, .titulo-profesion, .sidebar h2, .sidebar ul {
+                text-align: left;
+                width: 100%;
+            }
+
+            .photo-placeholder {
+                width: 4cm;
+                height: 4cm;
+                margin-bottom: 15px;
+                align-self: center;
+            }
+
+            .section-title-bar {
+                width: calc(100% + 20px);
+                margin-left: -10px;
+                height: 25px;
+                margin-top: 15px;
+                margin-bottom: 0;
+                padding-left: 10px;
+            }
+
+            .section-title-bar span {
+                font-size: 1em;
+            }
+
+            .contact-details-below-profile {
+                padding: 0 10px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+
+            .sidebar h2 {
+                margin-top: 15px;
+            }
+
+            .sidebar ul {
+                margin-bottom: 15px;
+            }
+
+            .sidebar ul li {
+                padding-left: 10px;
+            }
+
+            .main-content {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="cv-container">
-        <div class="left-panel">
-            <div class="profile-image">
-                <img src="perfil.jpg">
-            </div>
-            <h2>SOBRE MI</h2>
-            <p>Soy Tecnico Programador con conocimientos en programacion backend.</p>
+    <div class="sidebar">
+        <div class="nombre-sidebar">BENITEZ FRANCO PEDRO</div>
+        <div class="titulo-profesion">Programador</div>
 
-            <h2>EDUCACIÓN</h2>
-            <div class="education-item">
-                <h3>ITEC N&deg;3</h3>
-                <p>Tecnico Superior en Programacion y Analisis de Sistemas</p>
-            </div>
-        <div class="right-panel">
-            <h1>FRANCO PEDRO BENITEZ</h1>
-            <p>PROGRAMADOR - 37 AÑOS</p>
-
-<div class="contact-info">
-    <p><span class="icon">&#x1F4DE;</span>3764696537</p>
-    <p><span class="icon">&#x2709;</span>dantefaustinobenitez@gmail.com</p>
-    <p><span class="icon">&#x1F5FA;</span>Isla San Pedro 9127</p>
-</div>
-
-            <h2>EXPERIENCIA</h2>
-
-            <div class="experience-item">
-                <h3>SOTO Y OCHOA - BUENOS AIRES</h3>
-                <p>Gerente de Contabilidad, 2018 - Actualidad</p>
-                <ul>
-                    <li>Hice presupuestos periódicos para prever las exigencias mensuales de efectivo.</li>
-                    <li>Redacté informes financieros y reglamentarios de ley para incorporar y abrir oficinas en Córdoba y Río Negro.</li>
-                    <li>Redacté previsiones de gastos mensuales y anuales, además de todas las acciones necesarias para administrar costos conforme al presupuesto.</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <h3>INDUSTRIAS ARIOVA - BUENOS AIRES</h3>
-                <p>Asistente de Contabilidad, 2017 a 2018</p>
-                <ul>
-                    <li>Trabajé con hojas de cálculo, libros y expedientes de ventas y compras.</li>
-                    <li>Redacté informes financieros.</li>
-                    <li>Hice cálculos y revisiones para garantizar que fueran correctos los pagos, las cantidades y los registros.</li>
-                </ul>
-            </div>
+        <div class="photo-placeholder">
+            <img src="perfil.jpg" alt="Tu Foto de Perfil">
         </div>
+
+        <div class="section-title-bar">
+            <span>Perfil</span>
+        </div>
+
+        <ul class="contact-details-below-profile">
+            <li><span class="icon">&#128205;</span> DirecciÃ³n: Barrio Miguel LanÃºs</li>
+            <li><span class="icon">&#128222;</span> Celular: 3764696537</li>
+        </ul>
+
+        <div class="section-title-bar">
+            <span>Habilidades</span>
+        </div>
+
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>DiseÃ±o Responsivo</li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h1>Tu Nombre Completo</h1>
+        <p>Breve descripciÃ³n profesional, destacando tus objetivos o especializaciÃ³n.</p>
+
+        ---
+
+        <h2>Experiencia Laboral</h2>
+        <h3>Programador Backend - EnyelBFotografia</h3>
+        
+        ---
+
+        <h2>EducaciÃ³n</h2>
+        <h3>TÃ­tulo Universitario - Profesorado en Educacion Tecnologica</h3>
+        <p>03/2025 - En curso</p>
+
+        <h3>TÃ­tulo Universitario - Tecnico Superior en Programacion y Analisis de Sistemas</h3>
+        <p>12/2016</p>
     </div>
 </body>
 </html>
